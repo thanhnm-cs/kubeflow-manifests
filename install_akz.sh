@@ -76,7 +76,7 @@ curl -L https://istio.io/downloadIstio | sh -
 mv istio-${istioVersion} /tmp/
 kubectl apply -f /tmp/istio-${istioVersion}/samples/addons
 kubectl rollout status deployment/kiali -n istio-system
-# /tmp/istio-1.18.1/bin/istioctl dashboard kiali
+# /tmp/istio-1.18.2/bin/istioctl dashboard kiali
 cd ..
 
 
