@@ -6,4 +6,4 @@ resources:
   - kubeflow-training-roles.yaml
 images:
   - name: kubeflow/training-operator
-    newTag: "v1-5a5f92d"
+    newTag: "v1-855e096"

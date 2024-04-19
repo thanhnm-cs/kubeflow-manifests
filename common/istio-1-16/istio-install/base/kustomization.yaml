@@ -17,4 +17,3 @@ patchesStrategicMerge:
 # Disable this patch until we upgrade to kustomize to v4+ 
 # see https://github.com/kubeflow/manifests/issues/2325#issuecomment-1323909056
 # - patches/remove-pdb.yaml
-

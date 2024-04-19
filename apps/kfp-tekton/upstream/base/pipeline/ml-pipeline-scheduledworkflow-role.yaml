@@ -31,6 +31,12 @@ rules:
   - patch
   - delete
 - apiGroups:
+  - ""
+  resources:
+  - namespaces
+  verbs:
+  - get
+- apiGroups:
   - ''
   resources:
   - events
@@ -45,6 +51,7 @@ rules:
   - conditions
   - runs
   - tasks
+  - customruns
   verbs:
   - create
   - get
