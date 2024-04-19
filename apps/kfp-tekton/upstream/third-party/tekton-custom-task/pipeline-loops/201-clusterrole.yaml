@@ -9,13 +9,13 @@ metadata:
 rules:
     # Controller needs cluster access to all of the CRDs that it is responsible for managing.
   - apiGroups: ["tekton.dev"]
-    resources: ["runs", "taskruns", "pipelineruns"]
+    resources: ["runs", "customruns", "taskruns", "pipelineruns"]
     verbs: ["get", "list", "create", "update", "delete", "patch", "watch"]
   - apiGroups: ["tekton.dev"]
-    resources: ["runs/status", "taskruns/status", "pipelineruns/status", "runs/finalizers"]
+    resources: ["runs/status", "customruns/status", "taskruns/status", "pipelineruns/status", "runs/finalizers", "customruns/finalizers",]
     verbs: ["get", "list", "create", "update", "delete", "patch", "watch"]
   - apiGroups: ["custom.tekton.dev"]
-    resources: ["pipelineloops"]
+    resources: ["pipelineloops", "kfptasks"]
     verbs: ["get", "list", "create", "update", "delete", "patch", "watch"]
   - apiGroups: ["apps"]
     resources: ["deployments", "deployments/finalizers"]
@@ -49,6 +49,9 @@ rules:
   - apiGroups: ["apiextensions.k8s.io"]
     resources: ["customresourcedefinitions", "customresourcedefinitions/status"]
     verbs: ["get", "list", "update", "patch", "watch"]
+  - apiGroups: [""]
+    resources: ["namespaces"]
+    verbs: ["get", "list", "update", "patch", "watch"]
   - apiGroups: ["admissionregistration.k8s.io"]
     # The webhook performs a reconciliation on these two resources and continuously
     # updates configuration.
@@ -75,7 +78,7 @@ rules:
     verbs: ["get", "update"]
   - apiGroups: ["policy"]
     resources: ["podsecuritypolicies"]
-    resourceNames: ["tekton-pipelines"]
+    resourceNames: ["tekton-pipelines", "openshift-pipelines"]
     verbs: ["use"]
 ---
 kind: ClusterRole
